@@ -10,7 +10,6 @@ function AccountOperations() {
   const [currency, setCurrency] = useState("USD");
   const dispatch = useDispatch();
   const {
-    balance,
     loan: currentLoan,
     loanPurpose: currentLoanPurpose,
     isLoading,
@@ -18,7 +17,7 @@ function AccountOperations() {
 
   function handleDeposit() {
     if (!depositAmount) return;
-    dispatch(deposit(depositAmount));
+    dispatch(deposit(depositAmount, currency));
     setDepositAmount("");
     setCurrency("USD");
   }
